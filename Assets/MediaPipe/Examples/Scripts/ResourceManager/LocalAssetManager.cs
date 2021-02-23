@@ -64,7 +64,17 @@ public sealed class LocalAssetManager : ResourceManager {
     var assetName = Path.GetFileNameWithoutExtension(assetPath);
     var extension = Path.GetExtension(assetPath);
 
-    return extension == ".tflite" ? $"{assetName}.bytes" : $"{assetName}{extension}";
+    switch (extension) {
+      case ".tflite": {
+        return $"{assetName}.bytes";
+      }
+      case ".pbtxt": {
+        return $"{assetName}.txt";
+      }
+      default: {
+        return $"{assetName}{extension}";
+      }
+    }
   }
 
   static string GetLocalFilePath(string assetName) {
