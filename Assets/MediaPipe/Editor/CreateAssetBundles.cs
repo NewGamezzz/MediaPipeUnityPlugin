@@ -5,7 +5,7 @@ using UnityEngine;
 public class CreateAssetBundles
 {
     [MenuItem("Assets/Build AssetBundles")]
-    static void BuildAllAssetBundles()
+    internal static void BuildAllAssetBundles()
     {
         string assetBundleDirectory = Path.Combine(Application.streamingAssetsPath, "AssetBundles");
         if(!Directory.Exists(assetBundleDirectory))
